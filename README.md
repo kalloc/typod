@@ -3,7 +3,7 @@ Spelling errors correction for the search engine (based on [sphinx]) on your sit
 
 ## What is it?
 
-Typod is a missing spelling correcter for [sphinx] and it uses sphinx dictionary as source for spell checking
+Typod is a missing spelling corrector for [sphinx] and it uses sphinx dictionary as source for spell checking
 
 
 ## What we have?
