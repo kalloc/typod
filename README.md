@@ -102,4 +102,5 @@ Result is world (True) spend time 0.000109, 216.27 mb usage
 - support noise channel model 
 - support blocking-server
 - support custom dictionaries
+- add tests
 
