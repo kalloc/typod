@@ -36,9 +36,36 @@ and you can use typo as service (TaaS)
 ```
 x@y.z typod[master] $ python -m typo.cli --corrector-index examples/http/test.index server --port 3333
 INFO:typo.cmd_server:Run server on 0.0.0.0:3333, using default corrector
+```
 
+
+```
 x@y.z typod[master] $ (echo QUERY начь улеца фантан аптека бесмысленый и тусклий свед;sleep 1) | nc localhost 3333
 ночь улица фонтан аптека бессмысленный и тусклый свет
+```
+or
+
+```
+import socket
+
+def suggest(query):
+    sock = socket.socket()
+    sock.settimeout(0.1)
+    try:
+        sock.connect(('localhost', 3333))
+        sock.send('QUERY {}\n'.format(query.encode('utf-8')))
+        data = sock.recv(4096).strip().decode('utf-8')
+    except socket.error as e:
+        # TODO: do something with connection error
+        print e
+        data = None
+    except socket.timeout:
+        data = None
+    finally:
+        sock.close()
+    return data if data != query else query
+    
+print suggest('w0rd') # word
 ```
 
 
