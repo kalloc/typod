@@ -11,12 +11,6 @@ Typod is a missing spelling corrector for [sphinx] and it uses sphinx dictionary
 We have python classes for spell checking and a tcp interface to them
 
 
-## TODO
-- support n-gram
-- support noise channel model 
-- support blocking-server
-- support custom dictionaries
-
 ## How to use it?
 
 We can use typo in your python application:
@@ -101,3 +95,11 @@ Result is world (True) spend time 0.000109, 216.27 mb usage
 - [sphinx]
 
 [sphinx]: http://sphinxsearch.com/  "Sphinx Search"
+
+
+## TODO
+- support n-gram
+- support noise channel model 
+- support blocking-server
+- support custom dictionaries
+
