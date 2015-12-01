@@ -24,8 +24,8 @@ We can use typo in your python application:
 from typo import TypoDefault
 
 TYPO = 'начь улеца фантан аптека бесмысленый и тусклий свед'.decode('utf8')
-correcter = TypoDefault('examples/http/test.index')
-corrected, is_converted = correcter.suggestion(TYPO)
+corrector = TypoDefault('examples/http/test.index')
+corrected, ok = corrector.suggestion(TYPO)
 print corrected
 """
 ночь улица фонтан аптека бессмысленный и тусклый свет
