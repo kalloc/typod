@@ -1,0 +1,14 @@
+Sphinx 2.2.9-id64-release (rel22-r5006)
+Copyright (c) 2001-2015, Andrew Aksyonoff
+Copyright (c) 2008-2015, Sphinx Technologies Inc (http://sphinxsearch.com)
+
+using config file '/etc/sphinx/sphinx.conf'...
+dumping dictionary for index 'kremlin_texts_index'...
+keyword,docs,hits,offset
+ночь,1,1,26537730
+улица,1,1,26537730
+фонтан,1,1,26537730
+аптека,1,1,26537730
+бессмысленный,1,1,26537730
+тусклый,1,1,26537730
+свет,1,1,26537730
