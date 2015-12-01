@@ -67,7 +67,7 @@ class TypedServer(object):
             typo = unicode(data, "utf-8")
 
             corrected, is_success = self.corrector.suggestion(typo)
-            result = corrected.encode('utf-8') if is_success else data
+            result = corrected.encode('utf-8')
         else:
             result = 'ERROR'
 
