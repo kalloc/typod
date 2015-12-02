@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='Typo',
-    version='0.0.1',
+    version='0.0.2',
     url='http://github.com/smarttelemax/typo/',
     license='MIT',
     author='John Smith',
