@@ -17,12 +17,12 @@ You can use typod in your python application:
 ```
 from typo import TypoDefault
 
-TYPO = 'начь улеца фантан аптека бесмысленый и тусклий свед'.decode('utf8')
+TYPO = 'начь улеца фанарь аптека бесмысленый итусклый светт'.decode('utf8')
 corrector = TypoDefault('examples/http/test.index')
 corrected, ok = corrector.suggestion(TYPO)
 print corrected
 """
-ночь улица фонтан аптека бессмысленный и тусклый свет
+ночь улица фонарь аптека бессмысленный и тусклый свет
 """
 ```
 and you can use typod as service (TaaS)
@@ -36,7 +36,7 @@ INFO:typo.cmd_server:Run server on 0.0.0.0:3333, using default corrector
 
 
 ```
-x@y.z typod[master] $ (echo QUERY начь улеца фантан аптека бесмысленый и тусклий свед;sleep 1) | nc localhost 3333
+x@y.z typod[master] $ (echo QUERY начь улеца фантан аптека бесмысленый итусклый светт;sleep 1) | nc localhost 3333
 ночь улица фонтан аптека бессмысленный и тусклый свет
 ```
 or
@@ -83,7 +83,7 @@ User-Agent: HTTPie/0.9.2
 Connection: keep-alive
 Content-Type: application/json
 
-начь улеца фантан аптека бесмысленый и тусклий свед
+начь улеца фантан аптека бесмысленый итусклый светт
 
 
 HTTP/1.1 200 OK
