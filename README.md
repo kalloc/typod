@@ -3,17 +3,17 @@ Spelling errors correction for the search engine (based on [sphinx]) on your sit
 
 ## What is it?
 
-Typod is a missing spelling corrector for [sphinx] and it uses sphinx dictionary as source for spell checking
+Typod is a missing spelling corrector for [sphinx], and it uses sphinx dictionary as source for spell checking
 
 
-## What we have?
+## What have we?
 
 We have python classes for spell checking and a tcp interface to them
 
 
 ## How to use it?
 
-We can use typo in your python application:
+You can use typod in your python application:
 ```
 from typo import TypoDefault
 
@@ -25,7 +25,7 @@ print corrected
 ночь улица фонтан аптека бессмысленный и тусклый свет
 """
 ```
-and you can use typo as service (TaaS)
+and you can use typod as service (TaaS)
 
 ```
 x@y.z typod[master] $ python -m typo.cli --corrector-index examples/http/test.index server --port 3333
@@ -94,13 +94,14 @@ Result is world (True) spend time 0.000109, 216.27 mb usage
 - ashcan
 - [sphinx]
 
-[sphinx]: http://sphinxsearch.com/  "Sphinx Search"
-
 
 ## TODO
-- support n-gram
-- support noise channel model 
+- support [n-gram]
+- support [noisy_channel]
 - support blocking-server
 - support custom dictionaries
 - add tests
 
+[sphinx]: http://sphinxsearch.com/  "Sphinx Search"
+[noisy_channel]: https://en.wikipedia.org/wiki/Noisy_channel_model "Noisy channel model"
+[n-gram]: https://en.wikipedia.org/wiki/N-gram "N-gram"
