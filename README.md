@@ -27,6 +27,8 @@ print corrected
 ```
 and you can use typod as service (TaaS)
 
+TCP Server:
+
 ```
 x@y.z typod[master] $ python -m typo --corrector-index examples/http/test.index server --port 3333
 INFO:typo.cmd_server:Run server on 0.0.0.0:3333, using default corrector
@@ -60,6 +62,52 @@ def suggest(query):
     return data if data != query else query
     
 print suggest('w0rd') # word
+```
+
+
+uWSGI server:
+
+```
+uwsgi --plugin corerouter,python,http --http=:9090   --module typo.wsgi --pyargv='--index=examples/http/test.index'
+```
+
+
+Example for POST request:
+```
+POST / HTTP/1.1
+Content-Length: 96
+Accept-Encoding: gzip, deflate
+Host: localhost:9090
+Accept: application/json
+User-Agent: HTTPie/0.9.2
+Connection: keep-alive
+Content-Type: application/json
+
+начь улеца фантан аптека бесмысленый и тусклий свед
+
+
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=UTF-8
+
+ночь улица фонтан аптека бессмысленный и тусклый свет
+```
+
+and for GET request:
+```
+GET /?query=%D0%BD%D0%B0%D1%87%D1%8C%20%D1%83%D0%BB%D0%B5%D1%86%D0%B0%20%D1%84%D0%B0%D0%BD%D1%82%D0%B0%D0%BD%20%D0%B0%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BC%D1%8B%D1%81%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9%20%D0%B8%20%D1%82%D1%83%D1%81%D0%BA%D0%BB%D0%B8%D0%B9%20%D1%81%D0%B2%D0%B5%D0%B4 HTTP/1.1
+Connection: keep-alive
+Host: localhost:9090
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: HTTPie/0.9.2
+
+
+
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=UTF-8
+
+ночь улица фонтан аптека бессмысленный и тусклый свет
+
 ```
 
 
