@@ -28,7 +28,7 @@ print corrected
 and you can use typod as service (TaaS)
 
 ```
-x@y.z typod[master] $ python -m typo.cli --corrector-index examples/http/test.index server --port 3333
+x@y.z typod[master] $ python -m typo --corrector-index examples/http/test.index server --port 3333
 INFO:typo.cmd_server:Run server on 0.0.0.0:3333, using default corrector
 ```
 
@@ -73,14 +73,14 @@ se@goat $ indextool --dumpdict texts_index  > ~/dumpdict.txt
 scp se@goat:~/dumpdict.txt .
 
 # Convert a sphinx dictionary to typo index
-x@y.z typod[master*] $ python -m typo.cli --corrector-index typo.index convert --sphinx-dump dumpdict.txt
+x@y.z typod[master*] $ python -m typo --corrector-index typo.index convert --sphinx-dump dumpdict.txt
 Convert indextool format to "TypoDefault" corrector format
 Converting  [####################################]  100%
 Export result to /usr/home/x/src/typod/typo.index
 //EOE
 
 # Test
-x@y.z typod[master*] $ python -m typo.cli --corrector-index typo.index console
+x@y.z typod[master*] $ python -m typo --corrector-index typo.index console
 Phrase: w0rd
 Result is word (True) spend time 0.000121, 216.26 mb usage
 Phrase: ploy
