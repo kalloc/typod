@@ -24,8 +24,8 @@ def convert_group():
 @click.pass_context
 def convert(ctx, sphinx_dump):
     """
-	A converter from sphinx format to internal corrector format.
-	Use indextool --dumpdict to dump the sphinx dictionary.
+    A converter from sphinx format to internal corrector format.
+    Use indextool --dumpdict to dump the sphinx dictionary.
     """
     def progress(file):
         stat = os.stat(file.name)
@@ -58,6 +58,10 @@ def convert(ctx, sphinx_dump):
                .format(corrector.__name__))
 
     corrector_index = ctx.obj['corrector_index']
+    if not os.access(corrector_index, os.W_OK):
+        raise RuntimeError('do not have write permission to {}'
+                           .format(corrector_index))
+
     with open(sphinx_dump) as fd, open(corrector_index, 'w') as fd_out:
         items = clean(skip_header(progress(fd)))
         result = corrector.convert(items)

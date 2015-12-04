@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
                sources=[server_group, convert_group, console_group])
 @click.option('--debug', is_flag=True, default=False)
 @click.option('--corrector-index',
-              type=click.Path(writable=True, resolve_path=True),
+              type=click.Path(readable=True, resolve_path=True),
               default="index.data",
               required=True)
 @click.option('--corrector', type=click.Choice(TYPO_CLASSES.keys()),
