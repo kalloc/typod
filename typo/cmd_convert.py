@@ -12,6 +12,16 @@ ClientTuple = namedtuple('ClientTuple', 'timeout, reader, writer')
 WordTuple = namedtuple('WordTuple', 'keyword, docs, hits, offset')
 
 
+def is_writable(file):
+    try:
+        open(file, 'a')
+    except IOError:
+        pass
+    else:
+        return True
+    return False
+
+
 @click.group()
 def convert_group():
     pass
@@ -58,7 +68,7 @@ def convert(ctx, sphinx_dump):
                .format(corrector.__name__))
 
     corrector_index = ctx.obj['corrector_index']
-    if not os.access(corrector_index, os.W_OK):
+    if not is_writable(corrector_index):
         raise RuntimeError('do not have write permission to {}'
                            .format(corrector_index))
 
