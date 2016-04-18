@@ -29,7 +29,7 @@ def make_app(corrector):
 
 @click.command()
 @click.option('--index',
-              type=click.Path(writable=True, resolve_path=True),
+              type=click.Path(readable=True, resolve_path=True),
               default="index.data", required=True)
 @click.option('--corrector', type=click.Choice(TYPO_CLASSES.keys()),
               default='default')
