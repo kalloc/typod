@@ -51,9 +51,10 @@ class TypoDefault(object):
                 weight_prefix = self.weights[prefix]
                 weight_postfix = self.weights[postfix]
 
-                cword = " ".join([prefix, postfix])
-                cweight = ((skip_distance - 1) << 32) + (weight_prefix + weight_postfix) / 2
-                candidates[1].append((cword, cweight))
+                if not _ignore_candidate(postfix):
+                    cword = " ".join([prefix, postfix])
+                    cweight = ((skip_distance - 1) << 32) + (weight_prefix + weight_postfix) / 2
+                    candidates[1].append((cword, cweight))
 
         # handle the first letter
         # absent
