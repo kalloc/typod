@@ -78,7 +78,7 @@ class TypoDefault(object):
         key = ord(word[0])
         if key in self.corpus:
             for cword, weight in self.corpus[key].items():
-                if abs(len(cword) - len(word)) > skip_distance # small optimization
+                if abs(len(cword) - len(word)) > skip_distance: # small optimization
                     continue
                 d = Levenshtein.distance(cword, word)
                 if d > skip_distance:
