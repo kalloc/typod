@@ -140,7 +140,7 @@ class TypoDefault(object):
         # return the best
         better_candidates.sort(key=lambda x: x[1], reverse=True)
         max_weight = better_candidates[0][1]
-        better_candidates = [(cword, cweight * 100 / max_weight) for cword, cweight
+        better_candidates = [(cword, cweight * 100.0 / max_weight) for cword, cweight
                              in better_candidates if not _ignore_candidate(cword)]
         return better_candidates[:max_candidates]
 
