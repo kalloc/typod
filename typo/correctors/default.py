@@ -204,7 +204,7 @@ class TypoDefault(object):
         words = []
         for item in items:
             word = item.keyword
-            weight = int(item.hits)
+            weight = item.hits
             first_byte = ord(word[0])
             corpus[first_byte][word] = weight
             words.append(word)
